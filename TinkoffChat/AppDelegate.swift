@@ -9,70 +9,73 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
+final class AppDelegate: UIResponder, UIApplicationDelegate {
+    
     var window: UIWindow?
-
-    let stateForm = "Application moved from %@ to %@:"
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-    
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         
         if let _window = window {
             _window.rootViewController = ViewController()
             _window.makeKeyAndVisible()
-
-            print(String(format: stateForm, "Not running", "Background"), #function, "\n")
-        
-        // print("Application moved from Not running to Background: \(#function)" )
-            
         }
-        
+        printTransitionInfo()
         return true
     }
-   
+    
     func applicationWillResignActive(_ application: UIApplication) {
-        
-         print(String(format: stateForm, "Active", "Background"), #function, "\n")
-        
-        // print("Application moved from Active to Background:",#function)
-    }
-
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        
-         print(String(format: stateForm, "Active", "Background"), #function, "\n")
-        
-        // print("Application moved from Active to Background:",#function)
-    }
-
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        
-         print(String(format: stateForm, "Background", "Active"), #function, "\n")
-        
-         //print("Application moved from Background to Active:",#function)
-    }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        
-         print(String(format: stateForm, "Background", "Active"), #function, "\n")
-        
-        //print("Application moved from Background to Active:",#function)
-    }
-
-    func applicationWillTerminate(_ application: UIApplication) {
-        
-         print(String(format: stateForm, "Background", "Not running"), #function, "\n")
-        
-        //print("Application moved from Background to Not running:",#function)
+        printTransitionInfo()
     }
     
-
-    func willFinishLaunchingWithOptions(_ application: UIApplication) {
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        printTransitionInfo()
+    }
+    
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        printTransitionInfo()
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        printTransitionInfo()
+    }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        printTransitionInfo()
+    }
+    
+    private func printTransitionInfo(method: String = #function) {
+        let fromState: String
+        let toState: String
         
-         print(String(format: stateForm, "Background", "Not running"), #function, "\n")
+        let stateDescription = String(describing: UIApplication.shared.applicationState)
         
-        //print("Application moved from Background to Not running:",#function)
+        switch method {
+        case "application(_:didFinishLaunchingWithOptions:)":
+            fromState = "Background"
+            toState = stateDescription
+        case "applicationWillResignActive":
+            fromState = stateDescription
+            toState = "Background"
+        case "applicationDidEnterBackground":
+            fromState = "Active"
+            toState = stateDescription
+        case "applicationWillEnterForeground":
+            fromState = stateDescription
+            toState = "Active"
+        case "applicationDidBecomeActive":
+            fromState = "Background"
+            toState = stateDescription
+        case "applicationWillTerminate":
+            fromState = stateDescription
+            toState = "Not running"
+        default:
+            fromState = "Unknown"
+            toState = "Unknown"
+        }
+        
+        print("Application moved from \(fromState) to \(toState): \(method)")
     }
 }
-
