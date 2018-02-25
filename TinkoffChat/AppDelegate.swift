@@ -49,9 +49,9 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     private func printTransitionInfo(method: String = #function) {
         let fromState: String
         let toState: String
-        
+
         let stateDescription = String(describing: UIApplication.shared.applicationState)
-        
+
         switch method {
         case "application(_:didFinishLaunchingWithOptions:)":
             fromState = "Background"
@@ -75,7 +75,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
             fromState = "Unknown"
             toState = "Unknown"
         }
-        
-        print("Application moved from \(fromState) to \(toState): \(method)")
+
+        print("Application moved from \(fromState) to \(toState): \(method) \n")
     }
 }
