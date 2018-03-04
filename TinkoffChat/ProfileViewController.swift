@@ -14,16 +14,36 @@ final class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-    
         
-    }
+        fullNameTextField.text = "Anastasia Chuikina"
+        personalInfoTextView.text = "Hi!gdhdsghfghjsjsrhsetsethsaeths"
+        
+        profileImageView.clipsToBounds = true
+        profileImageView.layer.cornerRadius = 50
+        
+        photoButton.clipsToBounds = true
+        photoButton.layer.cornerRadius = 50
+        
+        profileButton.backgroundColor = .clear
+        profileButton.layer.cornerRadius = 15
+        profileButton.layer.borderWidth = 1
+        profileButton.layer.borderColor = UIColor.black.cgColor
+        
+        
+}
     
+    // MARK: - IBOutlets
     @IBOutlet weak var profileImageView: UIImageView!
-
+    @IBOutlet weak var profileButton: UIButton!
+    @IBOutlet weak var photoButton: UIButton!
+    @IBOutlet weak var fullNameTextField: UITextField!
+    @IBOutlet weak var personalInfoTextView: UITextView!
     
-    @IBOutlet weak var editImageView: UIImageView!
-    
-    
+    // MARK: - IBAction
+    @IBAction func editProfileButton(_ sender: UIButton) {
+    }
+    @IBAction func editPhotoButton(_ sender: Any) {
+    }
     
     override func didReceiveMemoryWarning() {
         printViewControllerLifecycleStage()
@@ -80,6 +100,5 @@ final class ProfileViewController: UIViewController {
         }
         print(method, "\n")
     }
-    
     
 }

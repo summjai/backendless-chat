@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina3_5" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZhC-v1-cl9">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,70 +15,78 @@
         <!--Profile View Controller-->
         <scene sceneID="HOk-UX-pyn">
             <objects>
-                <viewController id="ZhC-v1-cl9" customClass="ProfileViewController" customModule="TinkoffChat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Profile" id="ZhC-v1-cl9" customClass="ProfileViewController" customModule="TinkoffChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JOK-tF-Vfz">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" image="placeholder-user" translatesAutoresizingMaskIntoConstraints="NO" id="SXT-OF-m36">
-                                <rect key="frame" x="66" y="36" width="188" height="188"/>
+                                <rect key="frame" x="16" y="36" width="382.33333333333331" height="383"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="SXT-OF-m36" secondAttribute="height" id="Ohv-be-H7U"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slr-camera-2-xxl" translatesAutoresizingMaskIntoConstraints="NO" id="QiA-Ni-tCL">
-                                <rect key="frame" x="197.5" y="168" width="56.5" height="56"/>
-                                <color key="backgroundColor" red="0.2470588235" green="0.47058823529999999" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" priority="999" constant="100" id="IXJ-cv-ao6"/>
-                                    <constraint firstAttribute="width" secondItem="QiA-Ni-tCL" secondAttribute="height" id="lsM-Je-UHE"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SuY-ij-ZoT">
-                                <rect key="frame" x="16" y="416" width="288" height="44"/>
+                                <rect key="frame" x="16" y="672" width="382" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="6hm-WM-xsZ"/>
                                 </constraints>
                                 <state key="normal" title="Редактировать ">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="editProfileButton:" destination="ZhC-v1-cl9" eventType="touchUpInside" id="vrc-9G-tDc"/>
+                                </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="0zK-AJ-qLF">
-                                <rect key="frame" x="16" y="244" width="288" height="152"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="0zK-AJ-qLF">
+                                <rect key="frame" x="16" y="439" width="382" height="115"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" text="Full Name" borderStyle="line" placeholder="Full Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qSn-K3-D0Z">
-                                        <rect key="frame" x="0.0" y="0.0" width="288" height="44"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" text="Full Name" placeholder="Full Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qSn-K3-D0Z">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="22"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="WJa-xI-N2r"/>
+                                            <constraint firstAttribute="height" constant="22" id="WJa-xI-N2r"/>
                                         </constraints>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Personal info" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Asc-NW-p8O">
-                                        <rect key="frame" x="0.0" y="64" width="288" height="88"/>
+                                        <rect key="frame" x="0.0" y="27" width="382" height="88"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="88" id="CiT-3M-kxk"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="97b-42-O9q">
+                                <rect key="frame" x="298.33333333333331" y="319" width="100" height="100"/>
+                                <color key="backgroundColor" red="0.2470588235" green="0.47058823529999999" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" priority="999" constant="100" id="KB2-TW-0U3"/>
+                                    <constraint firstAttribute="width" secondItem="97b-42-O9q" secondAttribute="height" id="YeY-xU-y6u"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="20" minY="20" maxX="20" maxY="20"/>
+                                <state key="normal" image="camera"/>
+                                <connections>
+                                    <action selector="editPhotoButton:" destination="ZhC-v1-cl9" eventType="touchUpInside" id="QHu-Th-Dfs"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="0zK-AJ-qLF" firstAttribute="top" relation="greaterThanOrEqual" secondItem="SXT-OF-m36" secondAttribute="bottom" constant="20" id="2w9-Mi-RLT"/>
+                            <constraint firstItem="0zK-AJ-qLF" firstAttribute="top" relation="lessThanOrEqual" secondItem="SXT-OF-m36" secondAttribute="bottom" constant="20" id="2w9-Mi-RLT"/>
                             <constraint firstItem="SXT-OF-m36" firstAttribute="top" secondItem="H2e-6I-WTh" secondAttribute="top" constant="16" id="445-Vu-dY5"/>
                             <constraint firstItem="0zK-AJ-qLF" firstAttribute="trailing" secondItem="SuY-ij-ZoT" secondAttribute="trailing" id="8Tn-Cw-44t"/>
-                            <constraint firstItem="QiA-Ni-tCL" firstAttribute="width" relation="lessThanOrEqual" secondItem="SXT-OF-m36" secondAttribute="width" multiplier="0.3" id="9Qa-KC-aEd"/>
+                            <constraint firstItem="97b-42-O9q" firstAttribute="width" relation="lessThanOrEqual" secondItem="SXT-OF-m36" secondAttribute="width" multiplier="0.3" id="BH2-s9-9uo"/>
                             <constraint firstItem="H2e-6I-WTh" firstAttribute="bottom" secondItem="SuY-ij-ZoT" secondAttribute="bottom" constant="20" id="CeH-2q-qon"/>
-                            <constraint firstItem="QiA-Ni-tCL" firstAttribute="trailing" secondItem="SXT-OF-m36" secondAttribute="trailing" id="Lmd-KM-dyG"/>
+                            <constraint firstItem="97b-42-O9q" firstAttribute="bottom" secondItem="SXT-OF-m36" secondAttribute="bottom" id="G6o-Lz-4W6"/>
                             <constraint firstItem="SXT-OF-m36" firstAttribute="centerX" secondItem="JOK-tF-Vfz" secondAttribute="centerX" id="RiG-Lp-82X"/>
+                            <constraint firstItem="97b-42-O9q" firstAttribute="trailing" secondItem="SXT-OF-m36" secondAttribute="trailing" id="Tpm-o2-oEy"/>
                             <constraint firstItem="SuY-ij-ZoT" firstAttribute="leading" secondItem="H2e-6I-WTh" secondAttribute="leading" constant="16" id="b3M-mI-Ztn"/>
-                            <constraint firstItem="SuY-ij-ZoT" firstAttribute="top" secondItem="0zK-AJ-qLF" secondAttribute="bottom" constant="20" id="c5r-JA-DZw"/>
-                            <constraint firstItem="QiA-Ni-tCL" firstAttribute="bottom" secondItem="SXT-OF-m36" secondAttribute="bottom" id="nzw-zZ-Eg1"/>
+                            <constraint firstItem="SuY-ij-ZoT" firstAttribute="top" secondItem="0zK-AJ-qLF" secondAttribute="bottom" priority="999" constant="20" id="c5r-JA-DZw"/>
                             <constraint firstItem="0zK-AJ-qLF" firstAttribute="leading" secondItem="SuY-ij-ZoT" secondAttribute="leading" id="p96-B8-KWg"/>
                             <constraint firstItem="H2e-6I-WTh" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="SXT-OF-m36" secondAttribute="trailing" priority="999" constant="16" id="rbs-Kj-JXh"/>
                             <constraint firstItem="H2e-6I-WTh" firstAttribute="trailing" secondItem="SuY-ij-ZoT" secondAttribute="trailing" constant="16" id="yDs-ei-hkZ"/>
@@ -87,20 +95,20 @@
                         <viewLayoutGuide key="safeArea" id="H2e-6I-WTh"/>
                     </view>
                     <connections>
-                        <outlet property="EditImageView" destination="QiA-Ni-tCL" id="PaN-Ti-Iub"/>
-                        <outlet property="EditProlifeImageView" destination="QiA-Ni-tCL" id="hUM-mb-dZF"/>
-                        <outlet property="FullNameTextField" destination="qSn-K3-D0Z" id="cyb-cQ-D3f"/>
-                        <outlet property="ProfileImage" destination="SXT-OF-m36" id="i3R-Xp-K5c"/>
-                        <outlet property="ProfileImageView" destination="SXT-OF-m36" id="YGc-6y-oYq"/>
+                        <outlet property="fullNameTextField" destination="qSn-K3-D0Z" id="uky-sv-eew"/>
+                        <outlet property="personalInfoTextView" destination="Asc-NW-p8O" id="msK-jp-Ac1"/>
+                        <outlet property="photoButton" destination="97b-42-O9q" id="jmE-GD-XcG"/>
+                        <outlet property="profileButton" destination="SuY-ij-ZoT" id="fSS-aI-0AR"/>
+                        <outlet property="profileImageView" destination="SXT-OF-m36" id="3Aq-ai-Cwd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uTD-ey-mZY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="128.80000000000001" y="55.322338830584712"/>
+            <point key="canvasLocation" x="127.5" y="55"/>
         </scene>
     </scenes>
     <resources>
+        <image name="camera" width="128" height="128"/>
         <image name="placeholder-user" width="200" height="200"/>
-        <image name="slr-camera-2-xxl" width="128" height="128"/>
     </resources>
 </document>
