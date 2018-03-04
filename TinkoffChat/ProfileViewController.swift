@@ -8,14 +8,22 @@
 
 import UIKit
 
-final class ViewController: UIViewController {
+final class ProfileViewController: UIViewController {
     
     // MARK: - UIViewController
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        view.backgroundColor = .red
+    
+        
     }
+    
+    @IBOutlet weak var profileImageView: UIImageView!
+
+    
+    @IBOutlet weak var editImageView: UIImageView!
+    
+    
     
     override func didReceiveMemoryWarning() {
         printViewControllerLifecycleStage()
@@ -72,4 +80,6 @@ final class ViewController: UIViewController {
         }
         print(method, "\n")
     }
+    
+    
 }

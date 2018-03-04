@@ -7,21 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3412B370204AEA8500C681AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3412B36F204AEA8500C681AB /* Assets.xcassets */; };
 		34783087203DD35800B6E0C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34783086203DD35800B6E0C8 /* AppDelegate.swift */; };
-		34783089203DD35800B6E0C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34783088203DD35800B6E0C8 /* ViewController.swift */; };
-		3478308E203DD35800B6E0C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3478308D203DD35800B6E0C8 /* Assets.xcassets */; };
+		34783089203DD35800B6E0C8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34783088203DD35800B6E0C8 /* ProfileViewController.swift */; };
 		34783091203DD35800B6E0C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3478308F203DD35800B6E0C8 /* LaunchScreen.storyboard */; };
+		34B422B520470EB9000DA283 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34B422B420470EB9000DA283 /* Profile.storyboard */; };
 		34B4AC7C2040933200855BDA /* UIApplicationState+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B4AC7B2040933200855BDA /* UIApplicationState+Extension.swift */; };
 		D814C0A3631916B71DF510E1 /* Pods_TinkoffChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC3D346F913934C6170EAAA /* Pods_TinkoffChat.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3412B36F204AEA8500C681AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		34783083203DD35800B6E0C8 /* TinkoffChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinkoffChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34783086203DD35800B6E0C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		34783088203DD35800B6E0C8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3478308D203DD35800B6E0C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		34783088203DD35800B6E0C8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		34783090203DD35800B6E0C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		34783092203DD35800B6E0C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		34B422B420470EB9000DA283 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		34B4AC7B2040933200855BDA /* UIApplicationState+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplicationState+Extension.swift"; sourceTree = "<group>"; };
 		D667BED812CD681D89AB3F05 /* Pods-TinkoffChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TinkoffChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-TinkoffChat/Pods-TinkoffChat.release.xcconfig"; sourceTree = "<group>"; };
 		EE068366E7B5631631420923 /* Pods-TinkoffChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TinkoffChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TinkoffChat/Pods-TinkoffChat.debug.xcconfig"; sourceTree = "<group>"; };
@@ -71,10 +73,11 @@
 			children = (
 				34B4AC7A204092ED00855BDA /* Extension */,
 				34783086203DD35800B6E0C8 /* AppDelegate.swift */,
-				34783088203DD35800B6E0C8 /* ViewController.swift */,
-				3478308D203DD35800B6E0C8 /* Assets.xcassets */,
+				34783088203DD35800B6E0C8 /* ProfileViewController.swift */,
+				34B422B420470EB9000DA283 /* Profile.storyboard */,
 				3478308F203DD35800B6E0C8 /* LaunchScreen.storyboard */,
 				34783092203DD35800B6E0C8 /* Info.plist */,
+				3412B36F204AEA8500C681AB /* Assets.xcassets */,
 			);
 			path = TinkoffChat;
 			sourceTree = "<group>";
@@ -160,7 +163,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				34783091203DD35800B6E0C8 /* LaunchScreen.storyboard in Resources */,
-				3478308E203DD35800B6E0C8 /* Assets.xcassets in Resources */,
+				3412B370204AEA8500C681AB /* Assets.xcassets in Resources */,
+				34B422B520470EB9000DA283 /* Profile.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,7 +240,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34783089203DD35800B6E0C8 /* ViewController.swift in Sources */,
+				34783089203DD35800B6E0C8 /* ProfileViewController.swift in Sources */,
 				34783087203DD35800B6E0C8 /* AppDelegate.swift in Sources */,
 				34B4AC7C2040933200855BDA /* UIApplicationState+Extension.swift in Sources */,
 			);
