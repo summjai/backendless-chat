@@ -10,13 +10,84 @@ import UIKit
 
 final class ProfileViewController: UIViewController {
     
+    // MARK: - IBOutlets
+    @IBOutlet private weak var photoButton: UIButton!
+    @IBOutlet private weak var profileButton: UIButton!
+    @IBOutlet private weak var profileImageView: UIImageView!
+    @IBOutlet private weak var fullNameTextField: UITextField!
+    @IBOutlet private weak var personalInfoTextView: UITextView!
+    
+    // MARK: - IBAction
+    @IBAction func editPhotoButton(_ sender: Any) {
+        showImagePickingActionSheet()
+    }
+    
+    @IBAction func editProfileButton(_ sender: UIButton) {
+        
+    }
+    
     // MARK: - UIViewController
     override func viewDidLoad() {
-        
         super.viewDidLoad()
+        configureUI()
+    }
+    
+    // MARK: - Private Methods
+    private func showImagePickingActionSheet() {
+        print("Выбери изображение профиля \n")
         
+        let actionSheet = UIAlertController(title: "Выбери изображение профиля",
+                                            message: nil,
+                                            preferredStyle: .actionSheet)
+        
+        let galleryAction = UIAlertAction(title: "Усановить из галлереи",
+                                          style: .default,
+                                          handler: { _ in
+                                            self.showImagePickerWith(.photoLibrary)
+        })
+        
+        let cameraAction = UIAlertAction(title: "Сделать фото",
+                                         style: .default,
+                                         handler: { _ in
+                                            self.showImagePickerWith(.camera)
+        })
+        
+        let cancelAction = UIAlertAction(title: "Отмена",
+                                         style: .default,
+                                         handler: nil)
+        
+        actionSheet.addAction(galleryAction)
+        
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            actionSheet.addAction(cameraAction)
+        }
+        
+        actionSheet.addAction(cancelAction)
+        
+        self.present(actionSheet,
+                     animated: true,
+                     completion: nil)
+    }
+    
+    private func showImagePickerWith(_ sourceType: UIImagePickerControllerSourceType) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = sourceType
+        imagePicker.allowsEditing = true
+        present(imagePicker,
+                animated: true,
+                completion: nil)
+    }
+    
+    private func configureUI() {
         fullNameTextField.text = "Anastasia Chuikina"
-        personalInfoTextView.text = "Hi!gdhdsghfghjsjsrhsetsethsaeths"
+        personalInfoTextView.text = "Beginner IOS-developer🐣"
+        
+        personalInfoTextView.textContainerInset = .zero
+        personalInfoTextView.contentInset = UIEdgeInsets(top: 0,
+                                                         left: -5,
+                                                         bottom: 0,
+                                                         right: 0)
         
         profileImageView.clipsToBounds = true
         profileImageView.layer.cornerRadius = 50
@@ -24,81 +95,36 @@ final class ProfileViewController: UIViewController {
         photoButton.clipsToBounds = true
         photoButton.layer.cornerRadius = 50
         
-        profileButton.backgroundColor = .clear
-        profileButton.layer.cornerRadius = 15
         profileButton.layer.borderWidth = 1
+        profileButton.layer.cornerRadius = 15
+        profileButton.backgroundColor = .clear
         profileButton.layer.borderColor = UIColor.black.cgColor
-        
-        
+    }
 }
-    
-    // MARK: - IBOutlets
-    @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var profileButton: UIButton!
-    @IBOutlet weak var photoButton: UIButton!
-    @IBOutlet weak var fullNameTextField: UITextField!
-    @IBOutlet weak var personalInfoTextView: UITextView!
-    
-    // MARK: - IBAction
-    @IBAction func editProfileButton(_ sender: UIButton) {
-    }
-    @IBAction func editPhotoButton(_ sender: Any) {
-    }
-    
-    override func didReceiveMemoryWarning() {
-        printViewControllerLifecycleStage()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        printViewControllerLifecycleStage()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        printViewControllerLifecycleStage()
-    }
-    
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        printViewControllerLifecycleStage()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        printViewControllerLifecycleStage()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        printViewControllerLifecycleStage()
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        printViewControllerLifecycleStage()
-    }
-    
-    // MARK: - Private Methods 
-    private func printViewControllerLifecycleStage(method: String = #function) {
 
-        switch method {
-        case "viewWillAppear":
-            print("View moved from Disappeared/Disappearing to Appearing:")
-        case "viewDidAppear":
-            print("View moved from Appearing to Appeared:")
-        case "viewWillLayoutSubviews()":
-            print("View will layout subviews:")
-        case "viewDidLayoutSubviews()":
-            print("View did layout subviews:")
-        case "viewWillDisappear":
-            print("View moved from Appeared/Appearing to Disappearing:")
-        case "viewDidDisappear":
-            print("View moved from Disappearing to Disappeared:")
-        default:
-            ()
+// MARK: - UIImagePickerControllerDelegate
+
+extension ProfileViewController: UIImagePickerControllerDelegate {
+    
+    public func imagePickerController(_ picker: UIImagePickerController,
+                                      didFinishPickingMediaWithInfo info: [String: Any]) {
+
+        if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
+            profileImageView.image = image
         }
-        print(method, "\n")
+        
+        dismiss(animated: true,
+                completion: nil)
     }
+    
+    public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true,
+                completion: nil)
+    }
+}
+
+// MARK: - UINavigationControllerDelegate
+
+extension ProfileViewController: UINavigationControllerDelegate {
     
 }
