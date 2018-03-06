@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZhC-v1-cl9">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Profile View Controller-->
+        <scene sceneID="HOk-UX-pyn">
+            <objects>
+                <viewController storyboardIdentifier="Profile" id="ZhC-v1-cl9" customClass="ProfileViewController" customModule="TinkoffChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JOK-tF-Vfz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" image="placeholder-user" translatesAutoresizingMaskIntoConstraints="NO" id="SXT-OF-m36">
+                                <rect key="frame" x="16" y="36" width="288" height="288"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="SXT-OF-m36" secondAttribute="height" id="Ohv-be-H7U"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SuY-ij-ZoT">
+                                <rect key="frame" x="16" y="504" width="288" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="6hm-WM-xsZ"/>
+                                </constraints>
+                                <state key="normal" title="Редактировать ">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="editProfileButton:" destination="ZhC-v1-cl9" eventType="touchUpInside" id="vrc-9G-tDc"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="0zK-AJ-qLF">
+                                <rect key="frame" x="16" y="344" width="288" height="115"/>
+                                <subviews>
+                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" text="Full Name" placeholder="Full Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qSn-K3-D0Z">
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="22" id="WJa-xI-N2r"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" text="Personal info" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Asc-NW-p8O">
+                                        <rect key="frame" x="0.0" y="27" width="288" height="88"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="88" id="CiT-3M-kxk"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <dataDetectorType key="dataDetectorTypes" lookupSuggestion="YES"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="97b-42-O9q">
+                                <rect key="frame" x="204" y="224" width="100" height="100"/>
+                                <color key="backgroundColor" red="0.2470588235" green="0.47058823529999999" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" priority="999" constant="100" id="KB2-TW-0U3"/>
+                                    <constraint firstAttribute="width" secondItem="97b-42-O9q" secondAttribute="height" id="YeY-xU-y6u"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="20" minY="20" maxX="20" maxY="20"/>
+                                <state key="normal" image="camera"/>
+                                <connections>
+                                    <action selector="editPhotoButton:" destination="ZhC-v1-cl9" eventType="touchUpInside" id="QHu-Th-Dfs"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="0zK-AJ-qLF" firstAttribute="top" relation="lessThanOrEqual" secondItem="SXT-OF-m36" secondAttribute="bottom" constant="20" id="2w9-Mi-RLT"/>
+                            <constraint firstItem="SXT-OF-m36" firstAttribute="top" secondItem="H2e-6I-WTh" secondAttribute="top" constant="16" id="445-Vu-dY5"/>
+                            <constraint firstItem="0zK-AJ-qLF" firstAttribute="trailing" secondItem="SuY-ij-ZoT" secondAttribute="trailing" id="8Tn-Cw-44t"/>
+                            <constraint firstItem="H2e-6I-WTh" firstAttribute="bottom" secondItem="SuY-ij-ZoT" secondAttribute="bottom" constant="20" id="CeH-2q-qon"/>
+                            <constraint firstItem="97b-42-O9q" firstAttribute="bottom" secondItem="SXT-OF-m36" secondAttribute="bottom" id="G6o-Lz-4W6"/>
+                            <constraint firstItem="97b-42-O9q" firstAttribute="trailing" secondItem="SXT-OF-m36" secondAttribute="trailing" id="Tpm-o2-oEy"/>
+                            <constraint firstItem="SuY-ij-ZoT" firstAttribute="leading" secondItem="H2e-6I-WTh" secondAttribute="leading" constant="16" id="b3M-mI-Ztn"/>
+                            <constraint firstItem="SuY-ij-ZoT" firstAttribute="top" secondItem="0zK-AJ-qLF" secondAttribute="bottom" priority="999" constant="20" id="c5r-JA-DZw"/>
+                            <constraint firstItem="0zK-AJ-qLF" firstAttribute="leading" secondItem="SuY-ij-ZoT" secondAttribute="leading" id="p96-B8-KWg"/>
+                            <constraint firstItem="H2e-6I-WTh" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="SXT-OF-m36" secondAttribute="trailing" constant="16" id="rbs-Kj-JXh"/>
+                            <constraint firstItem="H2e-6I-WTh" firstAttribute="trailing" secondItem="SuY-ij-ZoT" secondAttribute="trailing" constant="16" id="yDs-ei-hkZ"/>
+                            <constraint firstItem="SXT-OF-m36" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H2e-6I-WTh" secondAttribute="leading" constant="16" id="zMM-eD-doH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="H2e-6I-WTh"/>
+                    </view>
+                    <connections>
+                        <outlet property="fullNameTextField" destination="qSn-K3-D0Z" id="uky-sv-eew"/>
+                        <outlet property="personalInfoTextView" destination="Asc-NW-p8O" id="msK-jp-Ac1"/>
+                        <outlet property="photoButton" destination="97b-42-O9q" id="jmE-GD-XcG"/>
+                        <outlet property="profileButton" destination="SuY-ij-ZoT" id="fSS-aI-0AR"/>
+                        <outlet property="profileImageView" destination="SXT-OF-m36" id="3Aq-ai-Cwd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uTD-ey-mZY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="127.5" y="55"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="camera" width="128" height="128"/>
+        <image name="placeholder-user" width="200" height="200"/>
+    </resources>
+</document>
