@@ -27,11 +27,23 @@ final class ProfileViewController: UIViewController {
     }
     
     // MARK: - UIViewController
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+//               Fatal error: Unexpectedly found nil while unwrapping an Optional value
+//               На данном этапе еще нет аутлета кнопки
+//               print(profileButton.frame)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        print(profileButton.frame)
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        print(profileButton.frame)
+//        На этом этапе, после имплементации layoutSubviews() методов, установился корректный фрэйм
+    }
+
     // MARK: - Private Methods
     private func showImagePickingActionSheet() {
         print("Выбери изображение профиля \n")
