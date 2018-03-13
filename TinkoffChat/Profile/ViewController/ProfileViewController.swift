@@ -26,22 +26,16 @@ final class ProfileViewController: UIViewController {
         
     }
     
+    @IBAction func dismiss(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
     // MARK: - UIViewController
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-//               Fatal error: Unexpectedly found nil while unwrapping an Optional value
-//               На данном этапе еще нет аутлета кнопки
-//               print(profileButton.frame)
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        print(profileButton.frame)
-    }
-    override func viewDidAppear(_ animated: Bool) {
-        print(profileButton.frame)
-//        На этом этапе, после имплементации layoutSubviews() методов, установился корректный фрэйм
     }
 
     // MARK: - Private Methods
@@ -52,7 +46,7 @@ final class ProfileViewController: UIViewController {
                                             message: nil,
                                             preferredStyle: .actionSheet)
         
-        let galleryAction = UIAlertAction(title: "Усановить из галлереи",
+        let galleryAction = UIAlertAction(title: "Установить из галлереи",
                                           style: .default,
                                           handler: { _ in
                                             self.showImagePickerWith(.photoLibrary)

@@ -27,9 +27,9 @@
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>NSMainStoryboardFile</key>
-	<string>Profile</string>
+	<string>Main</string>
 	<key>UIMainStoryboardFile~iphone</key>
-	<string>Profile</string>
+	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
