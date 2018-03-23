@@ -30,7 +30,6 @@ final class ProfileViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    
     // MARK: - UIViewController
     
     override func viewDidLoad() {

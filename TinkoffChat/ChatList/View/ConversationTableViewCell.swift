@@ -24,7 +24,6 @@ final class ConversationTableViewCell: UITableViewCell, ConversationCellConfigur
     
     @IBOutlet private weak var dateTimeLabel: UILabel!
     
-    
     public var name: String = "" {
         didSet {
             userNameLabel.text = name
