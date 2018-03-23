@@ -40,6 +40,11 @@
                         <viewLayoutGuide key="safeArea" id="SmR-mz-bog"/>
                     </view>
                     <navigationItem key="navigationItem" title="Tinkoff Chat" id="TDs-lZ-B0B">
+                        <barButtonItem key="leftBarButtonItem" title="Settings" id="D2m-Jj-zZr">
+                            <connections>
+                                <action selector="settingsTapped:" destination="Cyc-Lq-PEl" id="frA-NA-XJl"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="profile" id="bsR-mh-bjT">
                             <connections>
                                 <segue destination="DyZ-BL-5Xc" kind="presentation" id="awa-Hk-0yD"/>
@@ -49,11 +54,13 @@
                     <connections>
                         <outlet property="conversationTable" destination="oXi-Iu-rXH" id="Vgl-Kh-Prp"/>
                         <segue destination="i9A-qQ-YaX" kind="show" identifier="ShowChat" id="kDY-pr-L4d"/>
+                        <segue destination="CtJ-gZ-o18" kind="presentation" identifier="ShowSettings" id="dgh-47-J2F"/>
+                        <segue destination="9DX-pk-Zaq" kind="presentation" identifier="SwiftShowSettings" id="NKt-ur-L2Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iLs-9e-l4M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-698" y="35"/>
+            <point key="canvasLocation" x="-354" y="35"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="HOk-UX-pyn">
@@ -178,7 +185,7 @@
         <!--Chat View Controller-->
         <scene sceneID="Z2u-b7-6Li">
             <objects>
-                <viewController storyboardIdentifier="ChatViewController" id="i9A-qQ-YaX" customClass="ChatViewController" customModule="TinkoffNew" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChatViewController" id="i9A-qQ-YaX" customClass="ChatViewController" customModule="TinkoffChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dlv-JD-fmO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -187,7 +194,7 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="449"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="IncomingCell" id="r9v-gd-9Ej" customClass="MessageCell" customModule="TinkoffNew" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="IncomingCell" id="r9v-gd-9Ej" customClass="MessageCell" customModule="TinkoffChat" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="55.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="r9v-gd-9Ej" id="Pa4-Nl-tMf">
@@ -195,7 +202,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a1h-Fi-GKi">
-                                                    <rect key="frame" x="0.0" y="3.5" width="281.5" height="38"/>
+                                                    <rect key="frame" x="0.0" y="3.5" width="240" height="38"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2w6-RZ-gXH">
                                                             <rect key="frame" x="10" y="1" width="85" height="37"/>
@@ -236,7 +243,7 @@
                                             <outlet property="messageLabel" destination="t6B-DY-8TI" id="9Yu-cs-XuR"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="OutgoingCell" id="zlx-TL-Kbx" customClass="MessageCell" customModule="TinkoffNew" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="OutgoingCell" id="zlx-TL-Kbx" customClass="MessageCell" customModule="TinkoffChat" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="99.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zlx-TL-Kbx" id="4Cg-Se-K6q">
@@ -244,10 +251,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9WK-BV-HzQ">
-                                                    <rect key="frame" x="94" y="3" width="281" height="38.5"/>
+                                                    <rect key="frame" x="80" y="3" width="240" height="38.5"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kkr-rk-IIE">
-                                                            <rect key="frame" x="186" y="0.0" width="85" height="39.5"/>
+                                                            <rect key="frame" x="145" y="0.0" width="85" height="39.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="message" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q8m-W3-vgv">
                                                                     <rect key="frame" x="8" y="0.0" width="69" height="39"/>
@@ -290,7 +297,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="uvt-Sr-tX3">
                                 <rect key="frame" x="5" y="519" width="310" height="44"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tzV-YB-bMK" customClass="RoundedCornersTextView" customModule="TinkoffNew" customModuleProvider="target">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tzV-YB-bMK" customClass="RoundedCornersTextView" customModule="TinkoffChat" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="44"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -307,7 +314,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="euF-Ld-nft" customClass="RoundCornersButton" customModule="TinkoffNew" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="euF-Ld-nft" customClass="RoundCornersButton" customModule="TinkoffChat" customModuleProvider="target">
                                         <rect key="frame" x="260" y="0.0" width="50" height="44"/>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -370,7 +377,164 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="302" y="35"/>
+            <point key="canvasLocation" x="699.375" y="34.859154929577464"/>
+        </scene>
+        <!--Swift Themes View Controller-->
+        <scene sceneID="gDM-wa-g5d">
+            <objects>
+                <viewController id="FHK-fw-Dkd" customClass="SwiftThemesViewController" customModule="TinkoffChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QMr-Yb-9KT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Q27-U6-HEO">
+                                <rect key="frame" x="70" y="163" width="180" height="242"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dDk-Dm-LHX">
+                                        <rect key="frame" x="0.0" y="0.0" width="180" height="50"/>
+                                        <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="BK2-JD-yhT"/>
+                                            <constraint firstAttribute="width" constant="180" id="CWc-nm-WVJ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <color key="tintColor" red="0.58105844259999995" green="0.12855249639999999" blue="0.57453137639999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="1"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="30"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="firsetThemeSelected:" destination="FHK-fw-Dkd" eventType="touchUpInside" id="TVh-ih-ZoX"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DcF-Ns-WGx">
+                                        <rect key="frame" x="0.0" y="100" width="180" height="42"/>
+                                        <color key="backgroundColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <color key="tintColor" red="0.58105844259999995" green="0.12855249639999999" blue="0.57453137639999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="2"/>
+                                        <connections>
+                                            <action selector="secondThemeSelected:" destination="FHK-fw-Dkd" eventType="touchUpInside" id="gm5-zK-WQB"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJ4-Tv-szV">
+                                        <rect key="frame" x="0.0" y="192" width="180" height="50"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="FLX-AJ-KlO"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <color key="tintColor" red="0.58105844259999995" green="0.12855249639999999" blue="0.57453137639999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="3"/>
+                                        <connections>
+                                            <action selector="thirdThemeSelected:" destination="FHK-fw-Dkd" eventType="touchUpInside" id="yBh-Ht-zhv"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Q27-U6-HEO" firstAttribute="centerX" secondItem="QMr-Yb-9KT" secondAttribute="centerX" id="TNW-8G-LBb"/>
+                            <constraint firstItem="Q27-U6-HEO" firstAttribute="centerY" secondItem="QMr-Yb-9KT" secondAttribute="centerY" id="Xeh-GR-jTi"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="sJE-KV-dH8"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="JLN-mU-133">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="vZs-1Y-YKa">
+                            <connections>
+                                <action selector="dismiss:" destination="FHK-fw-Dkd" id="wCr-v3-EYj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="firstThemSelected" destination="dDk-Dm-LHX" id="vDP-7k-laK"/>
+                        <outlet property="secondThemeSelected" destination="DcF-Ns-WGx" id="m1Z-Pf-38n"/>
+                        <outlet property="thirdThemSelected" destination="dJ4-Tv-szV" id="PuO-Q4-ywi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZWu-lA-l9j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1383.75" y="-1336.2676056338028"/>
+        </scene>
+        <!--Themes View Controller-->
+        <scene sceneID="3wc-od-yP1">
+            <objects>
+                <viewController id="mej-sX-Svg" customClass="ThemesViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="t7a-Rd-eNZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="cAW-wm-bIE">
+                                <rect key="frame" x="70" y="163" width="180" height="242"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I6f-9A-tG4">
+                                        <rect key="frame" x="0.0" y="0.0" width="180" height="42"/>
+                                        <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <color key="tintColor" red="0.58105844259999995" green="0.12855249639999999" blue="0.57453137639999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="1">
+                                            <color key="titleShadowColor" red="0.58105844259999995" green="0.12855249639999999" blue="0.57453137639999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="chooseThemeOne:" destination="mej-sX-Svg" eventType="touchUpInside" id="WX1-MJ-esg"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CXO-f1-hPn">
+                                        <rect key="frame" x="0.0" y="92" width="180" height="50"/>
+                                        <color key="backgroundColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="0qy-3Z-oBq"/>
+                                            <constraint firstAttribute="width" constant="180" id="z78-NG-xmC"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <color key="tintColor" red="0.58105844259999995" green="0.12855249639999999" blue="0.57453137639999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="2"/>
+                                        <connections>
+                                            <action selector="chooseThemeTwo:" destination="mej-sX-Svg" eventType="touchUpInside" id="sUh-rZ-Nuw"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4TG-QP-0Xv">
+                                        <rect key="frame" x="0.0" y="192" width="180" height="50"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Vbn-HJ-aFL"/>
+                                            <constraint firstAttribute="width" constant="180" id="cdo-Jb-qmT"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="dKL-Ln-IBb"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="lE4-mj-VPK"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <color key="tintColor" red="0.58105844259999995" green="0.12855249639999999" blue="0.57453137639999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="3">
+                                            <color key="titleShadowColor" red="0.58105844259999995" green="0.12855249639999999" blue="0.57453137639999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="chooseThemeThree:" destination="mej-sX-Svg" eventType="touchUpInside" id="XJr-Lb-xWz"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="cAW-wm-bIE" firstAttribute="centerY" secondItem="t7a-Rd-eNZ" secondAttribute="centerY" id="9EE-X6-rNz"/>
+                            <constraint firstItem="cAW-wm-bIE" firstAttribute="centerX" secondItem="t7a-Rd-eNZ" secondAttribute="centerX" id="s6W-eT-eyk"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ssm-zc-FCZ"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="5qR-Qu-iAr">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="1Nq-kG-3gX">
+                            <connections>
+                                <action selector="dismiss:" destination="mej-sX-Svg" id="g2I-JU-q2g"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cs2-As-UVU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1383.75" y="-638.02816901408448"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="j3g-8M-PvO">
@@ -389,6 +553,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZCi-dF-4RT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-699.375" y="821.83098591549299"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="7z5-rz-G1N">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CtJ-gZ-o18" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kB0-N3-x5n">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="mej-sX-Svg" kind="relationship" relationship="rootViewController" id="RGZ-bZ-rKw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c4g-Le-D4a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="536" y="-638"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="6bF-Ga-BKQ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9DX-pk-Zaq" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Qpv-fy-dmF">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="FHK-fw-Dkd" kind="relationship" relationship="rootViewController" id="3c4-fd-P9z"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I41-hc-nF5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="534" y="-1336"/>
         </scene>
     </scenes>
     <resources>

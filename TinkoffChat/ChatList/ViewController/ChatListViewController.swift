@@ -8,11 +8,13 @@
 
 import UIKit
 
-final class ChatListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+final class ChatListViewController: UIViewController {
     
     // MARK: - Types
     private enum Constants {
         static let showChatSegue = "ShowChat"
+        static let showSettingsSegue = "ShowSettings"
+        static let swiftShowSettingsSegue = "SwiftShowSettings"
     }
     
     // MARK: - IBOutlets
@@ -38,16 +40,64 @@ final class ChatListViewController: UIViewController, UITableViewDataSource, UIT
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let identifier = segue.identifier else { return }
         
-        if identifier == Constants.showChatSegue {
+        switch identifier {
+        case Constants.showChatSegue:
             guard
                 let chat = sender as? Chat,
                 let destination = segue.destination as? ChatViewController else { return }
             let presentationModel = ChatPresentationModel(userName: chat.userName)
             destination.model = presentationModel
+        case Constants.showSettingsSegue:
+            guard
+                let navigationVC = segue.destination as? UINavigationController,
+                let destination = navigationVC.topViewController as? ThemesViewController else { return }
+            cofigure(themesViewController: destination)
+        case Constants.swiftShowSettingsSegue:
+            guard
+                let navigationVC = segue.destination as? UINavigationController,
+                let destination = navigationVC.topViewController as? SwiftThemesViewController else { return }
+            cofigure(themesViewController: destination)
+        default:
+            ()
         }
     }
     
-    // MARK: - UITableViewDataSource
+    // MARK: - IBAction
+    
+    @IBAction func settingsTapped(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: Constants.showSettingsSegue, sender: nil)
+    }
+    
+    // MARK: - Private Methods
+    
+    private func cofigure(themesViewController: ThemesViewController) {
+        let color1 = UIColor.black
+        let color2 = UIColor.yellow
+        let color3 = UIColor.blue
+        let themes = Themes.init(colors: color1, color2: color2, color3: color3)
+        themesViewController.model = themes
+        themesViewController.delegate = self
+    }
+    
+    private func cofigure(themesViewController: SwiftThemesViewController) {
+        let color1 = UIColor.black
+        let color2 = UIColor.yellow
+        let color3 = UIColor.blue
+        let themes = Themes.init(colors: color1, color2: color2, color3: color3)
+        themesViewController.model = themes
+        themesViewController.selectedColor = { [weak self] color in
+            self?.logThemeChanging(selectedTheme: color)
+        }
+    }
+    
+    private func logThemeChanging(selectedTheme: UIColor) {
+        print(String.init(describing: selectedTheme))
+    }
+}
+
+// MARK: - UITableViewDataSource
+extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
@@ -111,5 +161,13 @@ final class ChatListViewController: UIViewController, UITableViewDataSource, UIT
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 88
+    }
+}
+
+extension ChatListViewController: ThemesViewControllerDelegate {
+    func themesViewController(_ controller: ThemesViewController!,
+                              didSelectTheme selectedTheme: UIColor!) {
+        UIApplication.saveColorTheme(color: selectedTheme)
+        logThemeChanging(selectedTheme: selectedTheme)
     }
 }
