@@ -1,12 +1,15 @@
 PODS:
+  - IQKeyboardManagerSwift (5.0.7)
   - SwiftLint (0.25.0)
 
 DEPENDENCIES:
+  - IQKeyboardManagerSwift
   - SwiftLint
 
 SPEC CHECKSUMS:
+  IQKeyboardManagerSwift: 30fb3a61de1af53a95e02b80fb54ed0a19d5ede5
   SwiftLint: e14651157288e9e01d6e1a71db7014fb5744a8ea
 
-PODFILE CHECKSUM: 0bbbe1de790c4f7949160975611f9e26ebd0f95a
+PODFILE CHECKSUM: 6b57c80d7459c49a56817910ff430ad7b69bc9a0
 
 COCOAPODS: 1.4.0

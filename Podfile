@@ -7,4 +7,5 @@ target 'TinkoffChat' do
   
   # Pods for TinkoffChat
   pod 'SwiftLint'
+  pod 'IQKeyboardManagerSwift'
 end

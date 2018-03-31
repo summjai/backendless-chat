@@ -40,7 +40,6 @@ final class Chat {
     }
 }
 extension Chat {
-    //swiftlint:disable function_body_length
     static func generateFakeChats() -> (online: [Chat], offline: [Chat]) {
         var offline = [Chat]()
         var online = [Chat]()
