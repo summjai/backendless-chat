@@ -12,6 +12,12 @@
 		3428984920651B07008C5F24 /* Themes.m in Sources */ = {isa = PBXBuildFile; fileRef = 3428984820651B07008C5F24 /* Themes.m */; };
 		3428984B20653A82008C5F24 /* SwiftThemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3428984A20653A82008C5F24 /* SwiftThemesViewController.swift */; };
 		3428984D2065890D008C5F24 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3428984C2065890D008C5F24 /* UIApplication+Extension.swift */; };
+		342B55A1206D6D7900B8519B /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342B55A0206D6D7900B8519B /* Profile.swift */; };
+		342B55A4206D6E4900B8519B /* ProfileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342B55A3206D6E4900B8519B /* ProfileStorage.swift */; };
+		342B55A6206E3F3200B8519B /* GCDProfileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342B55A5206E3F3200B8519B /* GCDProfileStorage.swift */; };
+		342B55AA206FDE5C00B8519B /* SaveProfileOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342B55A9206FDE5C00B8519B /* SaveProfileOperation.swift */; };
+		342B55AC206FDECB00B8519B /* LoadProfileOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342B55AB206FDECB00B8519B /* LoadProfileOperation.swift */; };
+		342B55AE206FDFEF00B8519B /* OperationProfileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342B55AD206FDFEF00B8519B /* OperationProfileStorage.swift */; };
 		34783087203DD35800B6E0C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34783086203DD35800B6E0C8 /* AppDelegate.swift */; };
 		34783089203DD35800B6E0C8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34783088203DD35800B6E0C8 /* ProfileViewController.swift */; };
 		34783091203DD35800B6E0C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3478308F203DD35800B6E0C8 /* LaunchScreen.storyboard */; };
@@ -39,6 +45,12 @@
 		3428984820651B07008C5F24 /* Themes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Themes.m; sourceTree = "<group>"; };
 		3428984A20653A82008C5F24 /* SwiftThemesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftThemesViewController.swift; sourceTree = "<group>"; };
 		3428984C2065890D008C5F24 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
+		342B55A0206D6D7900B8519B /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		342B55A3206D6E4900B8519B /* ProfileStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileStorage.swift; sourceTree = "<group>"; };
+		342B55A5206E3F3200B8519B /* GCDProfileStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDProfileStorage.swift; sourceTree = "<group>"; };
+		342B55A9206FDE5C00B8519B /* SaveProfileOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveProfileOperation.swift; sourceTree = "<group>"; };
+		342B55AB206FDECB00B8519B /* LoadProfileOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadProfileOperation.swift; sourceTree = "<group>"; };
+		342B55AD206FDFEF00B8519B /* OperationProfileStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationProfileStorage.swift; sourceTree = "<group>"; };
 		34783083203DD35800B6E0C8 /* TinkoffChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinkoffChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34783086203DD35800B6E0C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34783088203DD35800B6E0C8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +91,42 @@
 				FAC3D346F913934C6170EAAA /* Pods_TinkoffChat.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		342B559F206D6D7000B8519B /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				342B55A0206D6D7900B8519B /* Profile.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		342B55A2206D6E3800B8519B /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				342B55A8206FDE4A00B8519B /* GCD */,
+				342B55A7206FDE4100B8519B /* Operation */,
+				342B55A3206D6E4900B8519B /* ProfileStorage.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		342B55A7206FDE4100B8519B /* Operation */ = {
+			isa = PBXGroup;
+			children = (
+				342B55A9206FDE5C00B8519B /* SaveProfileOperation.swift */,
+				342B55AB206FDECB00B8519B /* LoadProfileOperation.swift */,
+				342B55AD206FDFEF00B8519B /* OperationProfileStorage.swift */,
+			);
+			path = Operation;
+			sourceTree = "<group>";
+		};
+		342B55A8206FDE4A00B8519B /* GCD */ = {
+			isa = PBXGroup;
+			children = (
+				342B55A5206E3F3200B8519B /* GCDProfileStorage.swift */,
+			);
+			path = GCD;
 			sourceTree = "<group>";
 		};
 		34673DB32064009A008F7B5E /* Themes */ = {
@@ -184,6 +232,8 @@
 		34950E1520587055008EDDF9 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				342B55A2206D6E3800B8519B /* Storage */,
+				342B559F206D6D7000B8519B /* Entity */,
 				34950E162058705D008EDDF9 /* ViewController */,
 			);
 			path = Profile;
@@ -352,9 +402,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TinkoffChat/Pods-TinkoffChat-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -386,22 +439,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				342B55A1206D6D7900B8519B /* Profile.swift in Sources */,
 				34783089203DD35800B6E0C8 /* ProfileViewController.swift in Sources */,
+				342B55AA206FDE5C00B8519B /* SaveProfileOperation.swift in Sources */,
+				342B55AC206FDECB00B8519B /* LoadProfileOperation.swift in Sources */,
 				34950E0120556BCA008EDDF9 /* Chat.swift in Sources */,
 				3428984D2065890D008C5F24 /* UIApplication+Extension.swift in Sources */,
 				34950DF820542473008EDDF9 /* ChatListViewController.swift in Sources */,
 				34950E0720570A1B008EDDF9 /* UIColor+Extension.swift in Sources */,
+				342B55A6206E3F3200B8519B /* GCDProfileStorage.swift in Sources */,
 				34783087203DD35800B6E0C8 /* AppDelegate.swift in Sources */,
 				3428984920651B07008C5F24 /* Themes.m in Sources */,
 				34950E14205853A0008EDDF9 /* MessageCell.swift in Sources */,
 				34B4AC7C2040933200855BDA /* UIApplicationState+Extension.swift in Sources */,
 				34950DFB2054571A008EDDF9 /* ConversationTableViewCell.swift in Sources */,
+				342B55A4206D6E4900B8519B /* ProfileStorage.swift in Sources */,
 				34950E0520570448008EDDF9 /* UIFont+Extension.swift in Sources */,
 				34950E0F20585113008EDDF9 /* ChatViewController.swift in Sources */,
 				34950E03205590DF008EDDF9 /* Message.swift in Sources */,
 				34950E122058527C008EDDF9 /* ChatPresentationModel.swift in Sources */,
 				342898422065168F008C5F24 /* ThemesViewController.m in Sources */,
 				3428984B20653A82008C5F24 /* SwiftThemesViewController.swift in Sources */,
+				342B55AE206FDFEF00B8519B /* OperationProfileStorage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
